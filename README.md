@@ -1,6 +1,10 @@
-# MAGIC Particle Classifier
+<p align="center">
+  <img src="assets/magic-mark.png" alt="Gamma-ray and hadron particle-shower classifier mark" width="200" />
+</p>
 
-A Gradio prototype that classifies gamma and hadron events from CSV rows with saved neural-network and SVM models.
+<h1 align="center">MAGIC Particle Classifier</h1>
+
+<p align="center">A Gradio prototype that classifies gamma and hadron events from CSV rows with saved neural-network and SVM models.</p>
 
 ## What it does
 
