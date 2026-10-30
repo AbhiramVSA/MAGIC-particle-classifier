@@ -5,7 +5,7 @@ A Gradio prototype that classifies gamma and hadron events from CSV rows with sa
 ## What it does
 
 - Reads event features from a CSV file.
-- Applies the saved scaler and selected model.
+- Applies a scaler and the selected model. The scaler behavior depends on the entry point.
 - Returns one gamma or hadron label for each row.
 - Provides an SVM debug tab in `interface.py`.
 
@@ -31,7 +31,7 @@ fLength, fWidth, fSize, fConc, fConc1, fAsym, fM3Long, fM3Trans, fAlpha, fDist
 
 The scripts load the model and scaler from fixed paths under `/home/abhirama/`. Edit both scripts to use the files in this checkout.
 
-The current `requirements.txt` includes OS-specific packages, so it does not define a portable `pip install` step. Install compatible versions of Gradio, pandas, NumPy, joblib, scikit-learn, and TensorFlow in your Python environment.
+The current `requirements.txt` includes OS-specific packages, so it does not define a portable `pip install` step. Install compatible versions of Gradio, pandas, NumPy, joblib, scikit-learn, TensorFlow, and imbalanced-learn in your Python environment.
 
 Run the single-tab interface after you fix the paths:
 
@@ -39,7 +39,9 @@ Run the single-tab interface after you fix the paths:
 python Learning_L_Regression/interface2.py
 ```
 
-`interface.py` starts with `share=True`, which requests a public Gradio share link. Review that flag before you run it. `interface2.py` does not set that option.
+`interface.py` uses the saved scaler. It starts with `share=True`, which requests a public Gradio share link. Review that flag before you run it.
+
+`interface2.py` fits a new `StandardScaler` to each uploaded file. It does not use the saved scaler. Each entry point therefore scales its inputs differently. `interface2.py` does not request a share link.
 
 ## Scope and limits
 
